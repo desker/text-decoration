@@ -1,0 +1,78 @@
+#_text-decoration {
+
+  @decorate-char-repeat: 100;
+  @spacing: 0;
+
+  .style(@name) when (iskeyword(@name)) {
+    @solid : '—';
+    @dashed: '-';
+    @dotted: '·';
+    @double: '=' -1px;
+    @wave  : '~' -1px;
+
+    #_text-decoration .style(@@name);
+  }
+
+  .style(@options) when (length(@options)>=2) {
+    @char: extract(@options, 1);
+    @spacing: extract(@options, 2);
+
+    #_text-decoration .style(@char);
+  }
+
+  .style(@char) when (isstring(@char)) {
+    @content: ~`(function(c,r) {var str = []; c = c.substr(1, c.length-2); for (var i=0; i<r; i++) str.push(c); return '"'+str.join('')+'"';})("@{char}", @{decorate-char-repeat})`;
+  }
+
+  .color(@hex) when (iscolor(@hex)) {
+    @color: @hex;
+  }
+
+  .opacity(@val) when (ispercentage(@val)) {
+    @opacity: unit(@val/100);
+  }
+
+  .opacity(@val) when (isnumber(@val)) and (@val>=0) and (@val<=1) {
+    @opacity: @val;
+  }
+
+  .draw(@c-style: solid, @c-color: inhert, @c-opacity: 1) {
+    position: relative;
+    text-decoration: none;
+    
+    #_text-decoration .style(@c-style);
+    #_text-decoration .color(@c-color);
+    #_text-decoration .opacity(@c-opacity);
+
+    &:before {
+      line-height: 1.2em;
+      position: absolute;
+      left: 0; right: 0; top: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      margin-top: .5em;
+      content: @content;
+      opacity: @opacity;
+      color: @color;
+      letter-spacing: @spacing;
+    }
+  }
+
+}
+
+.text-decoration(@style: solid, @color: inhert, @opacity: 1) {
+  #_text-decoration .draw(@style, @color, @opacity);
+}
+
+/* .text-decoration-line(@line) when (iskeyword(@line)) {
+  @underline: 50%;
+  @overline : -50%;
+  @through  : 0;
+  
+  .text-decoration-line(@@line);
+}
+
+.text-decoration-line(@line) when (isnumber(@line)) {
+  @top: @line;
+}
+ */

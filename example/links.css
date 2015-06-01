@@ -1,0 +1,103 @@
+/* .text-decoration-line(@line) when (iskeyword(@line)) {
+  @underline: 50%;
+  @overline : -50%;
+  @through  : 0;
+  
+  .text-decoration-line(@@line);
+}
+
+.text-decoration-line(@line) when (isnumber(@line)) {
+  @top: @line;
+}
+ */
+a.solid {
+  position: relative;
+  text-decoration: none;
+}
+a.solid:before {
+  line-height: 1.2em;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: .5em;
+  content: "————————————————————————————————————————————————————————————————————————————————————————————————————";
+  opacity: 1;
+  color: red;
+  letter-spacing: 0;
+}
+a.dashed {
+  position: relative;
+  text-decoration: none;
+}
+a.dashed:before {
+  line-height: 1.2em;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: .5em;
+  content: "----------------------------------------------------------------------------------------------------";
+  opacity: 1;
+  color: blue;
+  letter-spacing: 0;
+}
+a.dotted {
+  position: relative;
+  text-decoration: none;
+}
+a.dotted:before {
+  line-height: 1.2em;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: .5em;
+  content: "····································································································";
+  opacity: 1;
+  color: green;
+  letter-spacing: 0;
+}
+a.double {
+  position: relative;
+  text-decoration: none;
+}
+a.double:before {
+  line-height: 1.2em;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: .5em;
+  content: "====================================================================================================";
+  opacity: 1;
+  color: black;
+  letter-spacing: -1px;
+}
+a.wave {
+  position: relative;
+  text-decoration: none;
+}
+a.wave:before {
+  line-height: 1.2em;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: .5em;
+  content: "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+  opacity: 1;
+  color: lime;
+  letter-spacing: -1px;
+}
+/*# sourceMappingURL=links.css.map */
