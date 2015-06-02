@@ -1,22 +1,29 @@
 @import "../text-decoration.less";
 
+a {
+  text-decoration: none;
+}
 
 a.solid {
-  .text-decoration(solid, red, 1);
+    .text-decoration(overline, solid);
 }
 
 a.dashed {
-  .text-decoration(dashed, blue, 1); 
+    .text-decoration(@line: .4em, @style: dashed, @opacity: .6);
 }
 
 a.dotted {
-  .text-decoration(dotted, green, 1); 
-}
-
-a.double {
-  .text-decoration(double, black, 1); 
+    .text-decoration(@style: dotted, @color: #f00);
 }
 
 a.wave {
-  .text-decoration(wave, lime, 1); 
+    .text-decoration(underline, wave, magenta, .6);
+}
+
+a.double {
+    .text-decoration(line-through, double, #f00);
+}
+
+a.custom {
+    .text-decoration(.8em, '*' 2px, red, .5);
 }
