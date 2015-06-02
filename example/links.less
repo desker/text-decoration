@@ -2,31 +2,61 @@
 
 a {
   text-decoration: none;
+  .text-decoration-rules({ opacity: .3 });
+
+  &:hover {
+    .text-decoration-rules({ opacity: .9 });
+  }
 }
 
-a.solid {
-    //.text-decoration(underline, solid, #f00, .5);
-    .text-decoration();
-    .text-decoration-line(underline);
-    .text-decoration-style(wave);
+.inblock {
+    .text-decoration(overline, solid, {
+            color: #f00;
+            font-weight: bold;
+            margin-top: -1.4em;
+        });
+
+    &:hover {
+     .text-decoration();
+    }
 }
 
-/* a.dashed {
-    .text-decoration(@line: .4em, @style: dashed, @opacity: .6);
+.underline {
+  .text-decoration-line(underline);
 }
 
-a.dotted {
-    .text-decoration(@style: dotted, @color: #f00);
+.overline {
+  .text-decoration-line(overline);
 }
 
-a.wave {
-    .text-decoration(underline, wave, magenta, .6);
+.through {
+  .text-decoration-line(line-through);
 }
 
-a.double {
-    .text-decoration(line-through, double, #f00);
+.solid {
+  .text-decoration-style(solid);
 }
 
-a.custom {
-    .text-decoration(.8em, '*' 2px, red, .5);
-} */
+.dashed {
+  .text-decoration-style(dashed);
+}
+
+.dotted {
+  .text-decoration-style(dotted);
+}
+
+.double {
+  .text-decoration-style(double);
+}
+
+.wave {
+  .text-decoration-style(wave);
+}
+
+.custom {
+  .text-decoration(underline, '*', {
+    letter-spacing: -1px;
+    font-size: .8em;
+    margin-top: .6em;
+  });
+}

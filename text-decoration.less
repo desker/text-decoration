@@ -43,36 +43,34 @@
     position: relative;
 
     .set({
+      display: block;
       position: absolute;
       left: 0; right: 0; top: .5em;
       overflow: hidden;
       white-space: nowrap;
     });
   }
-
 }
 
-.text-decoration(@line: none, @style: none, @color: none, @opacity: none) {
-  #_text-decoration .base();
+.text-decoration() {
+  #_text-decoration.set({ display: none; })
+}
+
+.text-decoration(@line, @style: solid, @rules: {}) {
   .text-decoration-line(@line);
   .text-decoration-style(@style);
-  .text-decoration-color(@color);
-  .text-decoration-opacity(@opacity);
+  .text-decoration-rules(@rules);
 }
 
-.text-decoration-line(@line) when not (@line = none) {
-  #_text-decoration .base();
-  #_text-decoration .line(@line);
+.text-decoration-line(@line) {
+  #_text-decoration.base();
+  #_text-decoration.line(@line);
 }
 
-.text-decoration-style(@style) when not (@style = none) {
-  #_text-decoration .style(@style);
+.text-decoration-style(@style) {
+  #_text-decoration.style(@style);
 }
 
-.text-decoration-color(@color) when not (@color = none) {
-  #_text-decoration .set({ color: @color });
-}
-
-.text-decoration-opacity(@opacity) when not (@opacity = none) {
-  #_text-decoration .set({ opacity: @opacity });
+.text-decoration-rules(@rules) {
+  #_text-decoration.set(@rules);
 }

@@ -2,82 +2,111 @@
 
 Less mixin for making customize text decoration without css3 features.
 
-
 ## Usage
+Setup any property separately
 ```less
-@import "text-decoration.less";
+.text-decoration-line(overline | underline | line-through | none);
+.text-decoration-style(solid | dashed | dotted | double | wave | <char>);
+.text-decoration-rules(<ruleset>);
+```
 
-.selector {
-    // Hide native decoration
-    text-decoration: none;
-
-    .text-decoration(@line: underline, @style: solid, @color: inherit, @opacity: 1);
-}
+or in block
+```less
+.text-decoration(<line>, <style>, <rules>);
 ```
 
 **Attention!**
-Text decoration draw using pseudoclass `.selector:before`, do not change it manually
+Text decoration draw using pseudoclass `:before` of parent selector, do not change it manually
 
-## Options
+## Example
 ```less
-@line: underline | overline | line-throught | <margin-top>
-@style: solid | dashed | dotted | double | wave | <char[ letter-spacing]>
-@color: inherit | <color>
-@opacity: 0..1
-```
+@import "../text-decoration.less";
 
-## Examples
-```less
 a {
   text-decoration: none;
+  .text-decoration-rules({ opacity: .6 });
+
+  &:hover {
+    .text-decoration-rules({ opacity: .9 });
+  }
 }
 
-a.solid {
-    .text-decoration(overline, solid);
+.inblock {
+    .text-decoration(overline, solid, {
+            color: #f00;
+            font-weight: bold;
+        })
 }
 
-a.dashed {
-    .text-decoration(@line: .4em, @style: dashed, @opacity: .6);
+.underline {
+  .text-decoration-line(underline);
 }
 
-a.dotted {
-    .text-decoration(@style: dotted, @color: #f00);
+.overline {
+  .text-decoration-line(overline);
 }
 
-a.wave {
-    .text-decoration(underline, wave, magenta, .6);
+.through {
+  .text-decoration-line(line-through);
 }
 
-a.double {
-    .text-decoration(line-through, double, #f00);
+.solid {
+  .text-decoration-style(solid);
 }
 
-a.custom {
-    .text-decoration(.8em, '*' 2px, red, .5);
+.dashed {
+  .text-decoration-style(dashed);
+}
+
+.dotted {
+  .text-decoration-style(dotted);
+}
+
+.double {
+  .text-decoration-style(double);
+}
+
+.wave {
+  .text-decoration-style(wave);
+}
+
+.custom {
+  .text-decoration(underline, '*', {
+    letter-spacing: -1px;
+    font-size: .8em;
+    margin-top: .6em;
+  });
 }
 ```
 
-## Tested in browsers
+```html
+<a href="#" class="inblock">Inblock</a>   
+<a href="#" class="custom">Custom decoration</a><br><br>
+
+<a href="#" class="solid underline">Solid underline</a>
+<a href="#" class="solid overline">overline</a>
+<a href="#" class="solid through">line-through</a><br><br>
+
+<a href="#" class="dashed underline">Dashed underline</a>
+<a href="#" class="dashed overline">overline</a>
+<a href="#" class="dashed through">line-through</a><br><br>
+
+<a href="#" class="dotted underline">Dotted underline</a>
+<a href="#" class="dotted overline">overline</a>
+<a href="#" class="dotted through">line-through</a><br><br>
+
+<a href="#" class="double underline">Double underline</a>
+<a href="#" class="double overline">overline</a>
+<a href="#" class="double through">line-through</a><br><br>
+
+<a href="#" class="wave underline">Wave underline</a>
+<a href="#" class="wave overline">overline</a>
+<a href="#" class="wave through">line-through</a>
+```
+
+## Tested in
  - Firefox 38
  - Chrome 43
- - IE 8 (*no opacity yet, line-through is under the text*)
-
+ 
 ## TODO
- - Setup some defauts
- - Rewrite only changed rules for `:hover`, `:visited` and other states
- - Remove decoration
-
-## FAQ
-Q: **How it works?** 
-
-A: String from `@style` 100 times append to the new string, result output in `:before`
-
-
-Q: **WTF!? Why not using border or gradients?**
-
-A: It's the only way I know to inherit text color, style and weight. Also this method allows to creation more decorations.
-
-
-Q: **CSS3 already has the same features**
-
-A: I prefer to search workaround instead of waiting while all modern browsers will support this features.
+ - Setup defauts
