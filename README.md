@@ -1,5 +1,4 @@
 # text-decoration
-**In progress, use at your own risk!**
 
 Less mixin for making customize text decoration without css3 features.
 
@@ -70,10 +69,15 @@ a.custom {
 
 ## FAQ
 Q: **How it works?** 
+
 A: String from `@style` 100 times append to the new string, result output in `:before`
 
+
 Q: **WTF!? Why not using border or gradients?**
+
 A: It's the only way I know to inherit text color, style and weight. Also this method allows to creation more decorations.
 
+
 Q: **CSS3 already has the same features**
+
 A: I prefer to search workaround instead of waiting while all modern browsers will support this features.
