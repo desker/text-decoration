@@ -1,5 +1,5 @@
 #_text-decoration {
-  @decoration-char-repeat: 100;
+  @char-repeat: 100;
 
   @solid : '—';
   @dashed: '-';
@@ -7,57 +7,72 @@
   @double: '=' -1px;
   @wave  : '~' -1px;
 
-  @underline   : .5em;
-  @overline    : -.6em;
-  @line-through: 0;
-
-  @letter-spacing: 0;
+  @underline   : 0;
+  @overline    : -1em;
+  @line-through: -.5em;
 
   .style(@name) when (iskeyword(@name)) {
     .style(@@name);
   }
 
   .style(@options) when (length(@options)>=2) {
-    @letter-spacing: extract(@options, 2);
-    .style(extract(@options, 1));
+    .style(extract(@options, 1), extract(@options, 2));
   }
 
-  .style(@char) when (isstring(@char)) {
-    @content: ~`(function(c,r) {var str = []; c = c.substr(1, c.length-2); for (var i=0; i<r; i++) str.push(c); return '"'+str.join('')+'"';})("@{char}", @{decoration-char-repeat})`;
+  .style(@char, @spacing: 0) when (isstring(@char)) {
+    @content: ~`(function(c,r) {var str = []; c = c.substr(1, c.length-2); for (var i=0; i<r; i++) str.push(c); return '"'+str.join('')+'"';})("@{char}", @{char-repeat})`;
+    .set({
+      content: @content;
+      letter-spacing: @spacing;
+    });
   }
 
   .line(@line) when (iskeyword(@line)) {
-    @position: @@line;
+    .line(@@line);
   }
 
   .line(@line) when (isnumber(@line)) {
-    @position: @line;
+    .set({ margin-top: @line });
   }
 
-  .draw(@line, @style, @color, @opacity) {
-    .line(@line);
-    .style(@style);
-    
+  .set(@rule) {
+    &:before { @rule(); }
+  }
+
+  .base() {
     position: relative;
-    z-index: 4;
-    
-    &:before {
-      z-index: 5;
-      line-height: 1.2em;
+
+    .set({
       position: absolute;
-      left: 0; right: 0; top: 0;
+      left: 0; right: 0; top: .5em;
       overflow: hidden;
       white-space: nowrap;
-      margin-top: @position;
-      content: @content;
-      opacity: @opacity;
-      color: @color;
-      letter-spacing: @letter-spacing;
-    }
+    });
   }
 
 }
 
-.text-decoration(@line: underline, @style: solid, @color: inherit, @opacity: 1) {
-  #_text-decoration .draw(@line, @style, @color, @opacity);
+.text-decoration(@line: none, @style: none, @color: none, @opacity: none) {
+  #_text-decoration .base();
+  .text-decoration-line(@line);
+  .text-decoration-style(@style);
+  .text-decoration-color(@color);
+  .text-decoration-opacity(@opacity);
+}
+
+.text-decoration-line(@line) when not (@line = none) {
+  #_text-decoration .base();
+  #_text-decoration .line(@line);
+}
+
+.text-decoration-style(@style) when not (@style = none) {
+  #_text-decoration .style(@style);
+}
+
+.text-decoration-color(@color) when not (@color = none) {
+  #_text-decoration .set({ color: @color });
+}
+
+.text-decoration-opacity(@opacity) when not (@opacity = none) {
+  #_text-decoration .set({ opacity: @opacity });
 }

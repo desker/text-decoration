@@ -5,10 +5,13 @@ a {
 }
 
 a.solid {
-    .text-decoration(overline, solid);
+    //.text-decoration(underline, solid, #f00, .5);
+    .text-decoration();
+    .text-decoration-line(underline);
+    .text-decoration-style(wave);
 }
 
-a.dashed {
+/* a.dashed {
     .text-decoration(@line: .4em, @style: dashed, @opacity: .6);
 }
 
@@ -26,4 +29,4 @@ a.double {
 
 a.custom {
     .text-decoration(.8em, '*' 2px, red, .5);
-}
+} */

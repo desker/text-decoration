@@ -3,116 +3,47 @@ a {
 }
 a.solid {
   position: relative;
-  z-index: 4;
 }
 a.solid:before {
-  z-index: 5;
-  line-height: 1.2em;
   position: absolute;
   left: 0;
   right: 0;
-  top: 0;
+  top: .5em;
   overflow: hidden;
   white-space: nowrap;
-  margin-top: -0.6em;
-  content: "————————————————————————————————————————————————————————————————————————————————————————————————————";
-  opacity: 1;
-  color: inherit;
-  letter-spacing: 0;
 }
-a.dashed {
-  position: relative;
-  z-index: 4;
-}
-a.dashed:before {
-  z-index: 5;
-  line-height: 1.2em;
+a.solid:before {
   position: absolute;
   left: 0;
   right: 0;
-  top: 0;
+  top: .5em;
   overflow: hidden;
   white-space: nowrap;
-  margin-top: 0.4em;
-  content: "----------------------------------------------------------------------------------------------------";
-  opacity: 0.6;
-  color: inherit;
-  letter-spacing: 0;
 }
-a.dotted {
-  position: relative;
-  z-index: 4;
-}
-a.dotted:before {
-  z-index: 5;
-  line-height: 1.2em;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  margin-top: 0.5em;
-  content: "····································································································";
-  opacity: 1;
-  color: #ff0000;
-  letter-spacing: 0;
-}
-a.wave {
-  position: relative;
-  z-index: 4;
-}
-a.wave:before {
-  z-index: 5;
-  line-height: 1.2em;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  margin-top: 0.5em;
-  content: "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-  opacity: 0.6;
-  color: magenta;
-  letter-spacing: -1px;
-}
-a.double {
-  position: relative;
-  z-index: 4;
-}
-a.double:before {
-  z-index: 5;
-  line-height: 1.2em;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  overflow: hidden;
-  white-space: nowrap;
+a.solid:before {
   margin-top: 0;
-  content: "====================================================================================================";
-  opacity: 1;
-  color: #ff0000;
+}
+a.solid:before {
+  content: "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
   letter-spacing: -1px;
 }
+/* a.dashed {
+    .text-decoration(@line: .4em, @style: dashed, @opacity: .6);
+}
+
+a.dotted {
+    .text-decoration(@style: dotted, @color: #f00);
+}
+
+a.wave {
+    .text-decoration(underline, wave, magenta, .6);
+}
+
+a.double {
+    .text-decoration(line-through, double, #f00);
+}
+
 a.custom {
-  position: relative;
-  z-index: 4;
-}
-a.custom:before {
-  z-index: 5;
-  line-height: 1.2em;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  margin-top: 0.8em;
-  content: "****************************************************************************************************";
-  opacity: 0.5;
-  color: red;
-  letter-spacing: 2px;
-}
+    .text-decoration(.8em, '*' 2px, red, .5);
+} */
 /*# sourceMappingURL=links.css.map */
