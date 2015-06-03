@@ -39,10 +39,10 @@ a.over {
 ### Available mixins
 ```less
 .text-decoration-line(underline | overline | line-through);
-.text-decoration-style(solid | dashed | dotted | double | wave | <custom charset>)
+.text-decoration-style(solid | dashed | dotted | double | wave | <charset>)
 .text-decoration-rules(<ruleset>);
 .text-decoration(<line>, <style>, <ruleset>);
 ```
 
-**Attention!**
-Text decoration draw using pseudoclass `:before` of parent selector, do not change it manually
+## Limitations
+Using `.text-decoration()` you lose one psedoelement (default `:before`).
