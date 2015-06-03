@@ -1,5 +1,5 @@
 #_text-decoration {
-  @char-repeat: 100;
+  @char-repeat: 40;
 
   @solid : '—';
   @dashed: '-';
@@ -11,6 +11,10 @@
   @overline    : -1em;
   @line-through: -.5em;
 
+/*   .options(@repeat: @char-repeat, @psedo:before) {
+  @@var
+}
+ */
   .style(@name) when (iskeyword(@name)) {
     .style(@@name);
   }
@@ -32,23 +36,20 @@
   }
 
   .line(@line) when (isnumber(@line)) {
-    .set({ margin-top: @line });
-  }
-
-  .set(@rule) {
-    &:before { @rule(); }
-  }
-
-  .base() {
     position: relative;
+    text-decoration: none;
 
     .set({
-      display: block;
+      margin-top: @line;
       position: absolute;
-      left: 0; right: 0; top: .5em;
+      left: 0; top: 0.5em; right: 0;
       overflow: hidden;
-      white-space: nowrap;
+      white-space: nowrap;;
     });
+  }
+
+  .set(@rule) when (isruleset(@rule)) {
+    &:before { @rule(); }
   }
 }
 
@@ -63,7 +64,6 @@
 }
 
 .text-decoration-line(@line) {
-  #_text-decoration.base();
   #_text-decoration.line(@line);
 }
 

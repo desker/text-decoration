@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "homepage": "https://github.com/karinsky/text-decoration",
   "authors": [
-    "Sergey Karinsky <desker.me@gmail.com>"
+    "Sergey Karinsky <karinsky.name@gmail.com>"
   ],
   "description": "LESS-mixin, making easy customizable text-decoration",
   "main": "text-decoration.less",
@@ -13,6 +13,7 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "example"
   ]
 }
