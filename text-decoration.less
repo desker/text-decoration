@@ -1,20 +1,17 @@
 #_text-decoration {
   @char-repeat: 40;
+  @pseudo: before;
 
   @solid : '—';
   @dashed: '-';
   @dotted: '·';
-  @double: '=' -1px;
-  @wave  : '~' -1px;
+  @double: '=' -.1em;
+  @wave  : '~' -.1em;
 
   @underline   : 0;
-  @overline    : -1em;
+  @overline    : -1.2em;
   @line-through: -.5em;
 
-/*   .options(@repeat: @char-repeat, @psedo:before) {
-  @@var
-}
- */
   .style(@name) when (iskeyword(@name)) {
     .style(@@name);
   }
@@ -25,7 +22,7 @@
 
   .style(@char, @spacing: 0) when (isstring(@char)) {
     @content: ~`(function(c,r) {var str = []; c = c.substr(1, c.length-2); for (var i=0; i<r; i++) str.push(c); return '"'+str.join('')+'"';})("@{char}", @{char-repeat})`;
-    .set({
+    .css({
       content: @content;
       letter-spacing: @spacing;
     });
@@ -39,7 +36,7 @@
     position: relative;
     text-decoration: none;
 
-    .set({
+    .css({
       margin-top: @line;
       position: absolute;
       left: 0; top: 0.5em; right: 0;
@@ -48,19 +45,19 @@
     });
   }
 
-  .set(@rule) when (isruleset(@rule)) {
-    &:before { @rule(); }
+  .css(@rule) when (isruleset(@rule)) {
+    &:@{pseudo} { @rule(); }
   }
 }
 
 .text-decoration() {
-  #_text-decoration.set({ display: none; })
+  #_text-decoration.css({ display: none; })
 }
 
 .text-decoration(@line, @style: solid, @rules: {}) {
   .text-decoration-line(@line);
   .text-decoration-style(@style);
-  .text-decoration-rules(@rules);
+  .text-decoration-css(@rules);
 }
 
 .text-decoration-line(@line) {
@@ -71,6 +68,6 @@
   #_text-decoration.style(@style);
 }
 
-.text-decoration-rules(@rules) {
-  #_text-decoration.set(@rules);
+.text-decoration-css(@rules) {
+  #_text-decoration.css(@rules);
 }
