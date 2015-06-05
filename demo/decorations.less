@@ -1,0 +1,73 @@
+@import "../text-decoration";
+
+html, body {
+  height: 100%;
+  max-height: 100%;
+  position: relative;
+}
+
+.center {
+  left: 0; right: 0;
+  position: absolute;
+  top: 20%; margin-top: -3em;
+  text-align: center;
+  z-index: 5;
+}
+
+a.sample {
+  font-size: 1em;
+  color: #2B485C;
+
+  .text-decoration-css({
+    opacity: .8;
+    color: #f00;
+  });
+}
+
+.under {
+  .text-decoration-line(underline);
+}
+
+.over {
+  .text-decoration-line(overline);
+}
+
+.through {
+  .text-decoration-line(line-through);
+}
+
+.solid {
+  .text-decoration-style(solid);
+}
+
+.dotted {
+  .text-decoration-style(dotted);
+}
+
+.dashed {
+  .text-decoration-style(dashed);
+}
+
+.double {
+  .text-decoration-style(double);
+}
+
+.wave {
+  .text-decoration-style(wave);
+}
+
+fieldset {
+  text-align: left;
+  margin-top: 20px;
+
+  label {
+    display: block;
+  }
+}
+
+aside {
+  float: left;
+  width: 220px;
+  position: relative;
+  z-index: 10;  
+}

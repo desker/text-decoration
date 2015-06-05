@@ -1,0 +1,96 @@
+html,
+body {
+  height: 100%;
+  max-height: 100%;
+  position: relative;
+}
+.center {
+  left: 0;
+  right: 0;
+  position: absolute;
+  top: 20%;
+  margin-top: -3em;
+  text-align: center;
+  z-index: 5;
+}
+a.sample {
+  font-size: 1em;
+  color: #2B485C;
+}
+a.sample:before {
+  opacity: .5;
+  color: #f00;
+}
+.under {
+  position: relative;
+  text-decoration: none;
+}
+.under:before {
+  margin-top: 0;
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  right: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.over {
+  position: relative;
+  text-decoration: none;
+}
+.over:before {
+  margin-top: -1em;
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  right: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.through {
+  position: relative;
+  text-decoration: none;
+}
+.through:before {
+  margin-top: -0.5em;
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  right: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.solid:before {
+  content: "————————————————————————————————————————";
+  letter-spacing: 0;
+}
+.dotted:before {
+  content: "········································";
+  letter-spacing: 0;
+}
+.dashed:before {
+  content: "----------------------------------------";
+  letter-spacing: 0;
+}
+.double:before {
+  content: "========================================";
+  letter-spacing: -0.1em;
+}
+.wave:before {
+  content: "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+  letter-spacing: -0.1em;
+}
+fieldset {
+  text-align: left;
+  margin-top: 20px;
+}
+fieldset label {
+  display: block;
+}
+aside {
+  float: left;
+  width: 220px;
+  position: relative;
+  z-index: 10;
+}
+/*# sourceMappingURL=decorations.css.map */

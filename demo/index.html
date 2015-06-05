@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    
+    <link type="text/css" rel="stylesheet/less" href="decorations.less" />
+
+    <script src="../bower_components/less/dist/less.min.js"></script>
+  
+  </head>
+
+  <body>
+
+
+    <aside>
+      <fieldset>
+        <legend>Line</legend> 
+        <label>
+          <input type="radio" name="line" value="under" checked>
+          Underline
+        </label>
+        <label>
+          <input type="radio" name="line" value="over">
+          Overline
+        </label>
+        <label>
+          <input type="radio" name="line" value="through">
+          Line-through
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Style</legend>
+        <label>
+          <input type="radio" name="style" value="solid">
+          Solid
+        </label>
+        <label>
+          <input type="radio" name="style" value="dashed">
+          Dashed
+        </label>
+        <label>
+          <input type="radio" name="style" value="dotted">
+          Dotted
+        </label>
+        <label>
+          <input type="radio" name="style" value="double">
+          Double
+        </label>
+        <label>
+          <input type="radio" name="style" value="wave">
+          Wave
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>CSS</legend>
+        <textarea name="" id=""></textarea>
+      </fieldset>
+    </aside>
+    
+    <div class="center">
+
+      <a href="#" class="sample under dashed">Sample link</a>
+    </div>
+
+
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script>
+    $(function() {
+
+      $('input[type=radio]').change(function() {
+
+        var style = $('input[name=style]:checked').val();
+        var line  = $('input[name=line]:checked').val();
+        var classname = 'sample '+style+' '+line;
+        $('.center a').attr('class', classname);
+
+      });
+
+    });
+    </script>
+  </body>
+</html>
