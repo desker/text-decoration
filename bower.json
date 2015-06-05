@@ -1,6 +1,6 @@
 {
   "name": "text-decoration",
-  "version": "0.3.0",
+  "version": "0.4.1",
   "homepage": "https://github.com/karinsky/text-decoration",
   "authors": [
     "Sergey Karinsky <karinsky.name@gmail.com>"
@@ -15,5 +15,8 @@
     "test",
     "tests",
     "example"
-  ]
+  ],
+  "devDependencies": {
+    "less": "~2.5.1"
+  }
 }
