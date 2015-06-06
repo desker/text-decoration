@@ -5,7 +5,7 @@
   "authors": [
     "Sergey Karinsky <karinsky.name@gmail.com>"
   ],
-  "description": "LESS-mixin, making easy customizable text-decoration",
+  "description": "A tool using LESS for make easy customizable text decoration",
   "main": "text-decoration.less",
   "license": "MIT",
   "ignore": [

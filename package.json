@@ -1,0 +1,19 @@
+{
+  "name": "text-decoration",
+  "version": "0.4.2",
+  "description": "A tool using LESS for make easy customizable text decoration",
+  "main": "text-decoration.less",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/karinsky/text-decoration"
+  },
+  "author": "Sergey Karinsky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karinsky/text-decoration/issues"
+  },
+  "homepage": "https://github.com/karinsky/text-decoration"
+}
