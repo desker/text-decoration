@@ -20,7 +20,7 @@ a {
   .text-decoration(underline, solid, {opacity: .6});
 
   &:hover {
-    .text-decoration-rules({opacity: .9});
+    .text-decoration-css({opacity: .9});
   }
 }
 
@@ -30,10 +30,10 @@ a.dashed {
 
 a.over {
   .text-decoration-line(overline);
-  .text-decoration-rules({ color: #f00 });
+  .text-decoration-css({ color: #f00 });
 
   &:hover {
-    .text-decoration-rules({ margin-top: -2em });
+    .text-decoration-css({ margin-top: -2em });
   }
 }
 ```
@@ -43,7 +43,7 @@ a.over {
 ```less
 .text-decoration-line(underline | overline | line-through);
 .text-decoration-style(solid | dashed | dotted | double | wave | <charset>)
-.text-decoration-rules(<ruleset>);
+.text-decoration-css(<ruleset>);
 .text-decoration(<line>, <style>, <ruleset>);
 ```
 
