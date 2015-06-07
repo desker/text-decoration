@@ -1,6 +1,6 @@
 {
   "name": "text-decoration",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "homepage": "https://github.com/karinsky/text-decoration",
   "authors": [
     "Sergey Karinsky <karinsky.name@gmail.com>"
@@ -14,7 +14,7 @@
     "bower_components",
     "test",
     "tests",
-    "example"
+    "demo"
   ],
   "devDependencies": {
     "less": "~2.5.1",

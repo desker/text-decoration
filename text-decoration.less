@@ -2,15 +2,15 @@
   @char-repeat: 40;
   @pseudo: before;
 
-  @solid : '—';
-  @dashed: '-';
-  @dotted: '·';
+  @solid : '−' -.1em;
+  @dashed: '−' .2em;
+  @dotted: '·' -.05em;
   @double: '=' -.1em;
   @wave  : '~' -.1em;
 
-  @underline   : 0;
-  @overline    : -1.2em;
-  @line-through: -.5em;
+  @underline   : 1em;
+  @overline    : 0;
+  @line-through: .5em;
 
   .style(@name) when (iskeyword(@name)) {
     .style(@@name);
@@ -39,7 +39,8 @@
     .css({
       margin-top: @line;
       position: absolute;
-      left: 0; top: 0.5em; right: 0;
+      left: 0; right: 0;
+      line-height: .3em;
       overflow: hidden;
       white-space: nowrap;;
     });

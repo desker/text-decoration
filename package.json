@@ -1,6 +1,6 @@
 {
   "name": "text-decoration",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "A tool using LESS for make easy customizable text decoration",
   "main": "text-decoration.less",
   "scripts": {
